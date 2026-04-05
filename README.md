@@ -115,4 +115,4 @@ agentic-cli-guide/
 
 This guide is a derivative work based on [You Need to Rewrite Your CLI for AI Agents](https://justin.poehnelt.com/posts/rewrite-your-cli-for-ai-agents/) by [Justin Poehnelt](https://justin.poehnelt.com), licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Changes were made: the original article was restructured, translated in part to Korean, expanded with additional examples, templates, and a prioritized checklist.
 
-This derivative work is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). See [LICENSE](LICENSE) for details.
+This derivative work is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
