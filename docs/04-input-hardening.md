@@ -6,7 +6,7 @@
 >
 > Validate agent input the same way you validate user input to a web API.
 
-Agents fail differently than humans — not just typos but **hallucinations**:
+Agents fail differently than humans. Humans typo. Agents hallucinate.
 
 | Failure type | Example | Risk |
 |--------------|---------|------|

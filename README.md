@@ -61,6 +61,25 @@ See the full checklist at [checklist/CHECKLIST.md](checklist/CHECKLIST.md).
 
 ---
 
+## FAQ
+
+**Q: Do I need to rewrite my CLI from scratch?**
+No. Most patterns can be added incrementally. Start with `--output json` and input validation, then layer on schema introspection and skill files.
+
+**Q: What if my CLI doesn't wrap a REST API?**
+The principles still apply. Any CLI that agents invoke needs machine-readable output, input hardening, and explicit documentation of invariants. Schema introspection is most valuable for API-backed CLIs, but `--describe` or `--help --json` works for anything.
+
+**Q: How do I handle auth for agents?**
+Environment variables for tokens and credential file paths. Service accounts where possible. Avoid flows that require a browser redirect.
+
+**Q: Is MCP worth the investment?**
+If your CLI wraps a structured API, yes. MCP eliminates shell escaping, argument parsing ambiguity, and output parsing. The agent calls a typed function instead of constructing a string.
+
+**Q: How do I test that my CLI is agent-safe?**
+Fuzz your inputs with the kinds of mistakes agents make — path traversals, embedded query params, double-encoded strings, control characters. `--dry-run` should catch issues before they hit your API.
+
+---
+
 ## Reference implementation
 
 - [Google Workspace CLI (gws)](https://github.com/googleworkspace/cli) — open-source reference that applies all principles in this guide
@@ -94,4 +113,6 @@ agentic-cli-guide/
 
 ## License
 
-MIT
+This guide is derived from [You Need to Rewrite Your CLI for AI Agents](https://justin.poehnelt.com/posts/rewrite-your-cli-for-ai-agents/) by Justin Poehnelt, licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+This derivative work is also licensed under CC BY-SA 4.0.

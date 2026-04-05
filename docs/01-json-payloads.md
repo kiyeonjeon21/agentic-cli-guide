@@ -12,13 +12,16 @@ my-cli spreadsheet create \
   --sheet-title "January" \
   --sheet-type GRID \
   --frozen-rows 1 \
-  --frozen-cols 2
+  --frozen-cols 2 \
+  --row-count 100 \
+  --col-count 10 \
+  --hidden false
 ```
 
 This feels natural to humans but causes three problems for agents:
 
 1. **No nested structure** — Flags are inherently flat. Collapsing something like `sheets[0].properties.gridProperties.frozenRowCount` into `--frozen-rows` introduces a translation layer.
-2. **Mismatch with the API** — When agents build requests from API docs, different flag names than API field names cause mapping errors.
+2. **Mismatch with the API** — When agents build requests from API docs, different flag names than API field names cause mapping errors. Humans typo. Agents hallucinate.
 3. **Combinatorial explosion** — Each API extension needs new flags, and the surface agents must learn keeps growing.
 
 ## Solution: pass JSON payloads directly
@@ -36,8 +39,11 @@ my-cli spreadsheet create --json '{
       "sheetType": "GRID",
       "gridProperties": {
         "frozenRowCount": 1,
-        "frozenColumnCount": 2
-      }
+        "frozenColumnCount": 2,
+        "rowCount": 100,
+        "columnCount": 10
+      },
+      "hidden": false
     }
   }]
 }'

@@ -16,6 +16,8 @@ That **implicit knowledge** is rarely in `--help`. Skill files capture it in a s
 
 YAML frontmatter plus Markdown body. Agent frameworks load it into context.
 
+Skill files follow the [Agent Skills](https://agentskills.io) open standard (OpenClaw), which works across multiple AI tools. The Google Workspace CLI ships over 100 skill files using this format.
+
 Core pieces:
 
 - **Frontmatter**: metadata (name, version, prerequisites)
@@ -24,7 +26,26 @@ Core pieces:
 
 ## Writing SKILL.md
 
-YAML frontmatter — only fields recognized by the agent framework should appear. For Claude Code skills, the supported fields are:
+YAML frontmatter fields depend on the agent framework. Two major formats exist.
+
+### OpenClaw / Agent Skills format
+
+The format used by the original blog post and the Google Workspace CLI:
+
+```yaml
+---
+name: gws-drive-upload
+version: 1.0.0
+metadata:
+  openclaw:
+    requires:
+      bins: ["gws"]
+---
+```
+
+### Claude Code format
+
+Claude Code extends the Agent Skills standard with additional fields. The supported fields are:
 
 | Field | Required | Description |
 |-------|----------|-------------|

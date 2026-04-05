@@ -53,7 +53,10 @@ Comparison:
 ### Implementation guidance
 
 ```bash
-# Google-style field mask
+# Google Workspace CLI style: field mask inside --params JSON
+gws drive files list --params '{"fields": "files(id,name,mimeType)"}'
+
+# Dedicated --fields flag
 my-cli files list --fields "files(id,name),nextPageToken"
 
 # GraphQL-style

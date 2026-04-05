@@ -2,6 +2,8 @@
 
 <!-- Declares what resources and operations the agent may access. Agent frameworks can read this to constrain tool use. Replace placeholders with real values. -->
 
+> This CLI is frequently invoked by AI/LLM agents. Always assume inputs can be adversarial.
+
 ## Allowed Resources
 
 Define the scope the agent may touch.
